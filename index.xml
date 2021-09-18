@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Level_1 on Hazard</title>
+    <link>/</link>
+    <description>Recent posts from in Level_1 on Hazard</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Sep 2021 15:45:22 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Level_1</title>
+      <link>/post/level_1/</link>
+      <pubDate>Sat, 18 Sep 2021 15:45:22 +0530</pubDate>
+      
+      <guid>/post/level_1/</guid>
+      <description>&lt;h1 id=&#34;reversing-hero&#34;&gt;Reversing Hero&lt;/h1&gt;
+&lt;h2 id=&#34;level-1&#34;&gt;Level 1&lt;/h2&gt;
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;So today I decided to write a small writeup on Level 1 of ReversingHero Challenge.
+While learning RE in my 3rd year of college, I came across a thread on reddit which was addressed to
+RE newbies to give some learning Resources. I then found out about ReversingHero challenge there.
+It is a perfect challenge for RE Newbies.&lt;/p&gt;
+&lt;h2 id=&#34;heading-1&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;I have used Remnux VM in this writeup which you can download from here. You can use any Linux
+Distro to solve this challenge but I wanted to learn Remnux thus I will be pasting the output from it.
+You can download the binary file from reversinghero.com. You will be greeted with an intriguing
+content. All Credits to xorpd for creating this challenge
+and giving me a permission to post a writeup. You can visit his Personal Website here.&lt;/p&gt;
+&lt;h2 id=&#34;diving-in&#34;&gt;Diving In&lt;/h2&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;So after Downloading I ran the file command to find out that the file was a Linux Executable(ELF) File.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads$ file reversinghero
+reversinghero: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), not stripped
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading-3&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;So the ELF File is not stripped.&lt;br&gt;
+We now Execute the file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads$ ./reversinghero 
+@ 1/p1
+@ 1/x1
+] +
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After Executing the binary we get the above output. After running ls command we find that 2 new files
+p1 and x1 have been extracted in a new folder &amp;ldquo;1&amp;rdquo;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads$ ls
+1  reversinghero
+remnux@remnux:~/Downloads$ cd 1
+remnux@remnux:~/Downloads/1$ ls
+p1  x1
+remnux@remnux:~/Downloads/1$ file *
+p1: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), not stripped
+x1: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), not stripped
+remnux@remnux:~/Downloads/1$ ls -al
+total 572
+drwx------ 2 remnux remnux   4096 Sep 18 10:01 .
+drwx------ 3 remnux remnux   4096 Sep 18 10:01 ..
+-rw-rw-r-- 1 remnux remnux 566160 Sep 18 10:01 p1
+-rw-rw-r-- 1 remnux remnux   6640 Sep 18 10:01 x1
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here we see both the extracted files are ELF. We make both the files executable by running chmod command.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1$ chmod +x x1 
+remnux@remnux:~/Downloads/1$ ls
+remnux@remnux:~/Downloads/1$ chmod +x p1
+remnux@remnux:~/Downloads/1$ ./x1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then we try to execute p1.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1$ ./p1
+&amp;gt; password
+] -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here I entered password but it needs a different input. We will try to execute x1.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1$ ./x1
+? lsdjfsjdofijwselvsd
+! -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here I entered a random string to show that the ELF needs some kind of password. So first advice I have got from
+other RE Specialists is to check all the strings contained in the executable file. See if there is any useful word
+you find like a password, temporary file, config file keyword, location etc.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1$ strings x1
+/lib64/ld-linux-x86-64.so.2
+libc.so.6
+printf
+fdopen
+fclose
+memset
+strcmp
+strlen
+exit
+fgets
+strcspn
+GLIBC_2.2.5
+ATAUAVI
+A^A]A\
+&amp;amp;EI1
+ATAUAUI
+A]A]A\
+ATAUAUH
+A]A]A\
+d(-_-)b//d(+_+)b\\d(-_-)b
+! + 
+ReversingHero
+#&amp;lt;}]
+www.xorpd.net
+%02X
+_DYNAMIC
+_GLOBAL_OFFSET_TABLE_
+_edata
+fclose@@GLIBC_2.2.5
+strlen@@GLIBC_2.2.5
+printf@@GLIBC_2.2.5
+memset@@GLIBC_2.2.5
+strcspn@@GLIBC_2.2.5
+fgets@@GLIBC_2.2.5
+strcmp@@GLIBC_2.2.5
+_end
+fdopen@@GLIBC_2.2.5
+__bss_start
+exit@@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.plt
+.text
+.eh_frame
+.dynamic
+.got.plt
+.data
+.bss
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So here we see few strings in x1 executable.&lt;br&gt;
+Most eyecatching was &lt;code&gt;(-_-)b//d(+_+)b\\d(-_-)b&lt;/code&gt;&lt;br&gt;
+We now just copy and paste this in out input of x1 file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1$ ./x1
+? d(-_-)b//d(+_+)b\\d(-_-)b
+! + 3E437BBA43971D612049DE8AD54FDEF068931E8C6D26F63D83742F932E740B6D
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Yay!! We got a Flag. Copy this flag and paste as an input to p2.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 3E437BBA43971D612049DE8AD54FDEF068931E8C6D26F63D83742F932E740B6D
+@ 2/p2
+@ 2/x2
+] +
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See it gave a different output than before. It has created a new directory &amp;ldquo;2&amp;rdquo;. In the directory
+there are 2 files, and they are p2 and x2. These are the files for Level 2. I will be writing Level 2
+and posting it soon.&lt;/p&gt;
+&lt;h2 id=&#34;heading-4&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Though we have solved this level by just running strings and guessing the password from it, I would
+advice you to go through the disassembly I have attached below. The screenshots are from Binary Ninja
+Cloud which is completely free and you can use it to decompile it through their BNIL Decompiler.
+I would highly recommend you all to use Binary Ninja as it is an emerging software, cheaper than IDA Pro
+and provides good options to users. I am trying to save up and buy the commercial License from it. They are offering
+75% Discount to full time students.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./img/Screenshot_20210918_194506.png&#34; alt=&#34;image alg text&#34;&gt;
+&lt;img src=&#34;./img/Screenshot_20210918_194547.png&#34; alt=&#34;image alg text&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;heading-5&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Hint: Check which string is copied to rsi and rdi. And How the result of &amp;ldquo;! + &amp;quot; or &amp;ldquo;! -\n&amp;rdquo; gets printed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Recovering Formatted Disk</title>
+      <link>/post/my-first-post/</link>
+      <pubDate>Thu, 09 Sep 2021 22:50:55 +0530</pubDate>
+      
+      <guid>/post/my-first-post/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Sometimes there are some decisions you make and erase your whole Partition of a Hard Drive. This happens usually when you are installing a new OS in your system. This is a problem that many face during their learning period in IT courses. I similarly have faced this issue about 4-5 times and this things create a great havoc. When google to recover the data I have lost, there are software Packages but you have to pay to use their services. I myself have let the hard disk be in the same state due to my financial problems. I lost so many great pictures of myself :(&lt;/p&gt;
+&lt;h2 id=&#34;heading-1&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;So I considered this to be my first topic in my Blog. Anyways, I am new to this so let me know if there are any corrections.&lt;/p&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;TestDisk is powerful free data recovery software! It was primarily designed to help recover lost partitions and/or make non-booting disks bootable again when these symptoms are caused by faulty software: certain types of viruses or human error (such as accidentally deleting a Partition Table). Partition table recovery using TestDisk is really easy.&lt;/p&gt;
+&lt;h2 id=&#34;heading-3&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;I wont explain all the technical details, but if you have accidentally erased your hard drive which contained Sensitive Information and if you want to recover it, TestDisk is the tool for you. Somethings to keep in mind- For Recovery of the Hard Drive, You must not enter any type of data of files in the empty partition. As you know your Computer never deletes your data, it will simply overwrite it on the deleted files. Enough Introduction, we wil get to Installation process. It is available by default in 90% of Linux Distros out there but if it isnt then you can simply install it using apt,dnf, yum etc.. according to the Linux Distro. It is also available on Windows and Mac but I personally have never used it. After Installing it, check your version using&lt;/p&gt;
+&lt;h2 id=&#34;version&#34;&gt;Version&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;testdisk &amp;ndash;version&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;start-the-application&#34;&gt;Start the Application&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo testdisk&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Enter your Password.&lt;br&gt;
+Your Window Should probably look like This&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+
+
+TestDisk is free data recovery software designed to help recover lost
+partitions and/or make non-booting disks bootable again when these symptoms
+are caused by faulty software, certain types of viruses or human error.
+It can also be used to repair some filesystem errors.
+
+Information gathered during TestDisk use can be recorded for later
+review. If you choose to create the text file, testdisk.log , it
+will contain TestDisk options, technical information and various
+outputs; including any folder/file names TestDisk was used to find and
+list onscreen.
+
+Use arrow keys to select, then press Enter key:
+&amp;gt;[ Create ] Create a new log file
+ [ Append ] Append information to log file
+ [ No Log ] Don&#39;t record anything
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Its upto you if you want to  create a log file or not. I would recommend you creating log files because if you run into an error you can always use this log files to get to the root of the problem.&lt;/p&gt;
+&lt;h2 id=&#34;heading-4&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Select the respective option and then the following screen shows up listing all the Hard Drives connected to your PC. In my case it is Internal Seagate 500 GB and 3999 MB PD&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+
+  TestDisk is free software, and
+comes with ABSOLUTELY NO WARRANTY.
+
+Select a media (use Arrow keys, then press Enter):
+&amp;gt;Disk /dev/sda - 500 GB / 465 GiB - APPLE HDD HTS545050A7E362
+ Disk /dev/sdb - 3999 MB / 3814 MiB
+
+
+
+
+
+
+
+
+
+&amp;gt;[Proceed ]  [  Quit  ]
+
+Note: Disk capacity must be correctly detected for a successful recovery.
+If a disk listed above has an incorrect size, check HD jumper settings and BIOS
+detection, and install the latest OS patches and disk drivers.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Select the hard drive whose files you want to recover and press Enter.&lt;br&gt;
+Now the Partition List shows up. Dont get overwhelmed, if it is a normal HDD, select Intel Partition.&lt;/p&gt;
+&lt;h2 id=&#34;heading-5&#34;&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+
+
+Disk /dev/sdb - 3999 MB / 3814 MiB
+
+Please select the partition table type, press Enter when done.
+&amp;gt;[Intel  ] Intel/PC partition
+ [EFI GPT] EFI GPT partition map (Mac i386, some x86_64...)
+ [Humax  ] Humax partition table
+ [Mac    ] Apple partition map (legacy)
+ [None   ] Non partitioned media
+ [Sun    ] Sun Solaris partition
+ [XBox   ] XBox partition
+ [Return ] Return to disk selection
+
+
+
+Hint: Intel partition table type has been detected.
+Note: Do NOT select &#39;None&#39; for media with only a single partition. It&#39;s very
+rare for a disk to be &#39;Non-partitioned&#39;.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now comes the tricky part.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+
+
+Disk /dev/sdb - 3999 MB / 3814 MiB
+     CHS 1016 124 62 - sector size=512
+
+&amp;gt;[ Analyse  ] Analyse current partition structure and search for lost partitions
+ [ Advanced ] Filesystem Utils
+ [ Geometry ] Change disk geometry
+ [ Options  ] Modify options
+ [ MBR Code ] Write TestDisk MBR code to first sector
+ [ Delete   ] Delete all data in the partition table
+ [ Quit     ] Return to disk selection
+
+
+
+
+
+Note: Correct disk geometry is required for a successful recovery. &#39;Analyse&#39;
+process may give some warnings if it thinks the logical geometry is mismatched.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading-6&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Select Analyse&lt;br&gt;
+It will analyse all the partitions in the given Drive. If you have formatted your Drive, all the previous formatted partitions should be visible here.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+
+Disk /dev/sdb - 3999 MB / 3814 MiB - CHS 1016 124 62
+Current partition structure:
+     Partition                  Start        End    Size in sectors
+
+Warning: number of heads/cylinder mismatches 255 (FAT) != 124 (HD)
+Warning: number of sectors per track mismatches 63 (FAT) != 62 (HD)
+ 1 * FAT32 LBA                0  33  3  1016   1  2    7809024 [UBUNTU 20_0]
+
+Warning: Bad ending sector (CHS and LBA don&#39;t match)
+
+
+
+
+
+
+
+
+
+*=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted
+&amp;gt;[Quick Search]  [ Backup ]
+                            Try to locate partition
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading-7&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;There may be a bunch of warnings. I have ignored them until now. Here we will see the information of the disk and two options.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Quick Search&lt;/li&gt;
+&lt;li&gt;Backup&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;heading-8&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Select Quick Search&lt;/p&gt;
+&lt;h2 id=&#34;heading-9&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;We will see the partitions of the Disk in this window.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+
+Disk /dev/sdb - 3999 MB / 3814 MiB - CHS 1016 124 62
+     Partition               Start        End    Size in sectors
+&amp;gt;* FAT32                    0  33  3  1016   1  2    7809024 [EFI System Partition] [UB
+UNTU 20_0]
+
+
+
+
+
+Structure: Ok.  Use Up/Down Arrow keys to select partition.
+Use Left/Right Arrow keys to CHANGE partition characteristics:
+*=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted
+Keys A: add partition, L: load backup, T: change type, P: list files,
+     Enter: to continue
+FAT32, blocksize=4096, 3998 MB / 3813 MiB
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here We can Change the partitions characteristics such as primary, logical etc.&lt;br&gt;
+You can See the Keys. We select her &amp;ldquo;P&amp;rdquo; to list all the files in the partitions.&lt;/p&gt;
+&lt;h2 id=&#34;heading-10&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;We now see all the files here in the Partition. Normal files are in white text. We see Deleted files
+in Red Color.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &amp;lt;grenier@cgsecurity.org&amp;gt;
+https://www.cgsecurity.org
+* FAT32                    0  33  3  1016   1  2    7809024 [EFI System Partition] [
+  Directory /
+
+&amp;gt;drwxr-xr-x     0     0         0  9-Jun-2021 05:24 System Volume Information
+-r-xr-xr-x     0     0     69145  9-Jun-2021 05:24 LDLINUX.SYS
+drwxr-xr-x     0     0         0  9-Jun-2021 05:24 .disk
+drwxr-xr-x     0     0         0  9-Jun-2021 05:24 BOOT
+drwxr-xr-x     0     0         0  9-Jun-2021 05:24 CASPER
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 DISTS
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 EFI
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 INSTALL
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 ISOLINUX
+-rwxr-xr-x     0     0     49053  9-Jun-2021 05:38 MD5SUM.TXT
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 POOL
+drwxr-xr-x     0     0         0  9-Jun-2021 05:38 PRESEED
+-rwxr-xr-x     0     0        94  9-Jun-2021 05:38 _YSLINUX.CFG
+-rwxr-xr-x     0     0       240  9-Jun-2021 05:38 AUTORUN.INF
+-rwxr-xr-x     0     0     34494  9-Jun-2021 05:38 AUTORUN.ICO
+
+Use Right to change directory, h to hide deleted files
+q to quit, : to select the current file, a to select all files
+C to copy the selected files, c to copy the current file
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading-11&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Now be careful, We now select all the files which we want to recover.&lt;/p&gt;
+&lt;h2 id=&#34;heading-12&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;We can select files
+individually by pressing &amp;ldquo;:&amp;rdquo; while navigating the files, or we can just select all the files in the
+partition by pressing &amp;ldquo;a&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;heading-13&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;After Selection Press &amp;ldquo;C&amp;rdquo; to copy the selected files and then the home
+directory will open. Select the folder of your choice where you want to store the backup.
+And Press &amp;ldquo;C&amp;rdquo; to paste the file. A Notification will show if the operation was successful or not in the terminal
+Press &amp;ldquo;q&amp;rdquo; multiple times to exit testdisk&lt;/p&gt;
+&lt;h2 id=&#34;congratulations-on-recovering-your-files&#34;&gt;Congratulations on Recovering your files.&lt;/h2&gt;
+&lt;p&gt;This is my first article I have published on the internet. If you find any mistakes or if you want
+to give any suggestions, please contact me through any of my social links below.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

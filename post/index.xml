@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Hazard</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Hazard</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Sep 2021 15:45:22 +0530</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Level_1</title>
+      <link>/post/level_1/</link>
+      <pubDate>Sat, 18 Sep 2021 15:45:22 +0530</pubDate>
+      
+      <guid>/post/level_1/</guid>
+      <description>Reversing Hero Level 1 Introduction  So today I decided to write a small writeup on Level 1 of ReversingHero Challenge. While learning RE in my 3rd year of college, I came across a thread on reddit which was addressed to RE newbies to give some learning Resources. I then found out about ReversingHero challenge there. It is a perfect challenge for RE Newbies.
+ I have used Remnux VM in this writeup which you can download from here.</description>
+    </item>
+    
+    <item>
+      <title>Recovering Formatted Disk</title>
+      <link>/post/my-first-post/</link>
+      <pubDate>Thu, 09 Sep 2021 22:50:55 +0530</pubDate>
+      
+      <guid>/post/my-first-post/</guid>
+      <description>Sometimes there are some decisions you make and erase your whole Partition of a Hard Drive. This happens usually when you are installing a new OS in your system. This is a problem that many face during their learning period in IT courses. I similarly have faced this issue about 4-5 times and this things create a great havoc. When google to recover the data I have lost, there are software Packages but you have to pay to use their services.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <title>Recovering Formatted Disk | Hazard</title>
+        <meta name="description" content="Recovering Formatted Disk">
+        <meta property="og:site_name" content="Recovering Formatted Disk" />
+        <meta property="og:title" content="Hazard" />
+        <meta property="og:description" content="Sometimes there are some decisions you make and erase your whole Partition of a Hard Drive. This happens usually when you are installing a new OS in your system. This is a problem that many face during their learning period in IT courses. I similarly have faced this issue about 4-5 times and this things create a great havoc. When google to recover the data I have lost, there are software Packages but you have to pay to use their services."/>
+        <meta property="og:image" content="/img/myprofile_1.jpg" />
+    
+    
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    
+    <meta name="keywords" content="">
+    <link rel="icon" type="image/svg" href='../../img/ghidra.png'/>
+    <meta name="author" content='Pratik Kadam'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    <link rel="stylesheet" href="../../sass/main.min.2ec5574c3cc6d0e06666d718ad1606a880afc23333cec89d3843ff7e4db2bfe8.css" type="text/css" media="screen" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+
+    
+
+    
+
+    
+    </head>
+
+<body>
+      <div class="line" id="scrollIndicator"></div>
+      <div class="main"><div class="title">
+  <div class="name">
+    <h2><a href="../../"
+	   style="text-decoration: none; color: inherit;">Hazard</a></h2>
+  </div>
+  <div class="color-scheme">
+    <input type="checkbox" class="checkbox" id="chk" />
+    <label class="label" for="chk">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+      <div class="ball"></div>
+    </label>
+  </div>
+</div>
+<script>
+  const themeSetter = (theme) => {
+      document.body.classList.toggle('dark')
+      localStorage.setItem('theme', theme)
+      blockSwitcher()
+  }
+
+  const blockSwitcher = () => [...document.getElementsByTagName("BLOCKQUOTE")]
+	.forEach(b => b.classList.toggle('dark'))
+
+  const styleSwapper = () => {
+      document.body.classList.add('back-transition')
+      if (localStorage.getItem('theme') === 'dark') themeSetter('light')
+      else if (localStorage.getItem('theme') === 'light') themeSetter('dark')
+  }
+
+  if (localStorage.getItem('theme') === 'dark'){
+      themeSetter('dark')
+      document.addEventListener("DOMContentLoaded", blockSwitcher)
+  }
+ else localStorage.setItem('theme', 'light')
+
+  document.getElementById('chk').addEventListener('change',styleSwapper);
+
+  window.addEventListener("scroll", () => {
+      let height = document.documentElement.scrollHeight
+          - document.documentElement.clientHeight;
+      if(height >= 500){
+	  let winScroll = document.body.scrollTop
+              || document.documentElement.scrollTop;
+	  let scrolled = (winScroll / height) * 100;
+	  document.getElementById("scrollIndicator").style.width = scrolled + "%";
+      }
+  });
+</script>
+
+<section class="intro">
+    
+    <div class="post-header">
+    <h2 class="post-title"><a class="go-back" href="../../post/">
+	      <i class="far fa-caret-square-left"></i></a> Recovering Formatted Disk</h2>
+    </div>
+    <p>By <a href="">Hazard</a></p>
+    <p class="post-dets">Published on: September 9, 2021
+        | Reading Time: 7 min | Last Modified : September 9, 2021
+        <br>
+    </p>
+    <span class="tags">
+        
+    </span>
+    
+    <div class="content">
+        <h2 id="heading"></h2>
+<p>Sometimes there are some decisions you make and erase your whole Partition of a Hard Drive. This happens usually when you are installing a new OS in your system. This is a problem that many face during their learning period in IT courses. I similarly have faced this issue about 4-5 times and this things create a great havoc. When google to recover the data I have lost, there are software Packages but you have to pay to use their services. I myself have let the hard disk be in the same state due to my financial problems. I lost so many great pictures of myself :(</p>
+<h2 id="heading-1"></h2>
+<p>So I considered this to be my first topic in my Blog. Anyways, I am new to this so let me know if there are any corrections.</p>
+<h2 id="heading-2"></h2>
+<p>TestDisk is powerful free data recovery software! It was primarily designed to help recover lost partitions and/or make non-booting disks bootable again when these symptoms are caused by faulty software: certain types of viruses or human error (such as accidentally deleting a Partition Table). Partition table recovery using TestDisk is really easy.</p>
+<h2 id="heading-3"></h2>
+<p>I wont explain all the technical details, but if you have accidentally erased your hard drive which contained Sensitive Information and if you want to recover it, TestDisk is the tool for you. Somethings to keep in mind- For Recovery of the Hard Drive, You must not enter any type of data of files in the empty partition. As you know your Computer never deletes your data, it will simply overwrite it on the deleted files. Enough Introduction, we wil get to Installation process. It is available by default in 90% of Linux Distros out there but if it isnt then you can simply install it using apt,dnf, yum etc.. according to the Linux Distro. It is also available on Windows and Mac but I personally have never used it. After Installing it, check your version using</p>
+<h2 id="version">Version</h2>
+<blockquote>
+<p>testdisk &ndash;version</p>
+</blockquote>
+<h2 id="start-the-application">Start the Application</h2>
+<blockquote>
+<p>sudo testdisk</p>
+</blockquote>
+<p>Enter your Password.<br>
+Your Window Should probably look like This</p>
+<pre><code>TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+
+
+TestDisk is free data recovery software designed to help recover lost
+partitions and/or make non-booting disks bootable again when these symptoms
+are caused by faulty software, certain types of viruses or human error.
+It can also be used to repair some filesystem errors.
+
+Information gathered during TestDisk use can be recorded for later
+review. If you choose to create the text file, testdisk.log , it
+will contain TestDisk options, technical information and various
+outputs; including any folder/file names TestDisk was used to find and
+list onscreen.
+
+Use arrow keys to select, then press Enter key:
+&gt;[ Create ] Create a new log file
+ [ Append ] Append information to log file
+ [ No Log ] Don't record anything
+</code></pre><p>Its upto you if you want to  create a log file or not. I would recommend you creating log files because if you run into an error you can always use this log files to get to the root of the problem.</p>
+<h2 id="heading-4"></h2>
+<p>Select the respective option and then the following screen shows up listing all the Hard Drives connected to your PC. In my case it is Internal Seagate 500 GB and 3999 MB PD</p>
+<pre><code>TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+
+  TestDisk is free software, and
+comes with ABSOLUTELY NO WARRANTY.
+
+Select a media (use Arrow keys, then press Enter):
+&gt;Disk /dev/sda - 500 GB / 465 GiB - APPLE HDD HTS545050A7E362
+ Disk /dev/sdb - 3999 MB / 3814 MiB
+
+
+
+
+
+
+
+
+
+&gt;[Proceed ]  [  Quit  ]
+
+Note: Disk capacity must be correctly detected for a successful recovery.
+If a disk listed above has an incorrect size, check HD jumper settings and BIOS
+detection, and install the latest OS patches and disk drivers.
+
+</code></pre><p>Select the hard drive whose files you want to recover and press Enter.<br>
+Now the Partition List shows up. Dont get overwhelmed, if it is a normal HDD, select Intel Partition.</p>
+<h2 id="heading-5"></h2>
+<pre><code>TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+
+
+Disk /dev/sdb - 3999 MB / 3814 MiB
+
+Please select the partition table type, press Enter when done.
+&gt;[Intel  ] Intel/PC partition
+ [EFI GPT] EFI GPT partition map (Mac i386, some x86_64...)
+ [Humax  ] Humax partition table
+ [Mac    ] Apple partition map (legacy)
+ [None   ] Non partitioned media
+ [Sun    ] Sun Solaris partition
+ [XBox   ] XBox partition
+ [Return ] Return to disk selection
+
+
+
+Hint: Intel partition table type has been detected.
+Note: Do NOT select 'None' for media with only a single partition. It's very
+rare for a disk to be 'Non-partitioned'.
+
+</code></pre><p>Now comes the tricky part.</p>
+<pre><code>
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+
+
+Disk /dev/sdb - 3999 MB / 3814 MiB
+     CHS 1016 124 62 - sector size=512
+
+&gt;[ Analyse  ] Analyse current partition structure and search for lost partitions
+ [ Advanced ] Filesystem Utils
+ [ Geometry ] Change disk geometry
+ [ Options  ] Modify options
+ [ MBR Code ] Write TestDisk MBR code to first sector
+ [ Delete   ] Delete all data in the partition table
+ [ Quit     ] Return to disk selection
+
+
+
+
+
+Note: Correct disk geometry is required for a successful recovery. 'Analyse'
+process may give some warnings if it thinks the logical geometry is mismatched.
+</code></pre><h2 id="heading-6"></h2>
+<p>Select Analyse<br>
+It will analyse all the partitions in the given Drive. If you have formatted your Drive, all the previous formatted partitions should be visible here.</p>
+<pre><code>TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+
+Disk /dev/sdb - 3999 MB / 3814 MiB - CHS 1016 124 62
+Current partition structure:
+     Partition                  Start        End    Size in sectors
+
+Warning: number of heads/cylinder mismatches 255 (FAT) != 124 (HD)
+Warning: number of sectors per track mismatches 63 (FAT) != 62 (HD)
+ 1 * FAT32 LBA                0  33  3  1016   1  2    7809024 [UBUNTU 20_0]
+
+Warning: Bad ending sector (CHS and LBA don't match)
+
+
+
+
+
+
+
+
+
+*=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted
+&gt;[Quick Search]  [ Backup ]
+                            Try to locate partition
+</code></pre><h2 id="heading-7"></h2>
+<p>There may be a bunch of warnings. I have ignored them until now. Here we will see the information of the disk and two options.</p>
+<ol>
+<li>Quick Search</li>
+<li>Backup</li>
+</ol>
+<h2 id="heading-8"></h2>
+<p>Select Quick Search</p>
+<h2 id="heading-9"></h2>
+<p>We will see the partitions of the Disk in this window.</p>
+<pre><code>
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+
+Disk /dev/sdb - 3999 MB / 3814 MiB - CHS 1016 124 62
+     Partition               Start        End    Size in sectors
+&gt;* FAT32                    0  33  3  1016   1  2    7809024 [EFI System Partition] [UB
+UNTU 20_0]
+
+
+
+
+
+Structure: Ok.  Use Up/Down Arrow keys to select partition.
+Use Left/Right Arrow keys to CHANGE partition characteristics:
+*=Primary bootable  P=Primary  L=Logical  E=Extended  D=Deleted
+Keys A: add partition, L: load backup, T: change type, P: list files,
+     Enter: to continue
+FAT32, blocksize=4096, 3998 MB / 3813 MiB
+</code></pre><p>Here We can Change the partitions characteristics such as primary, logical etc.<br>
+You can See the Keys. We select her &ldquo;P&rdquo; to list all the files in the partitions.</p>
+<h2 id="heading-10"></h2>
+<p>We now see all the files here in the Partition. Normal files are in white text. We see Deleted files
+in Red Color.</p>
+<pre><code>TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER &lt;grenier@cgsecurity.org&gt;
+https://www.cgsecurity.org
+* FAT32                    0  33  3  1016   1  2    7809024 [EFI System Partition] [
+  Directory /
+
+&gt;drwxr-xr-x     0     0         0  9-Jun-2021 05:24 System Volume Information
+-r-xr-xr-x     0     0     69145  9-Jun-2021 05:24 LDLINUX.SYS
+drwxr-xr-x     0     0         0  9-Jun-2021 05:24 .disk
+drwxr-xr-x     0     0         0  9-Jun-2021 05:24 BOOT
+drwxr-xr-x     0     0         0  9-Jun-2021 05:24 CASPER
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 DISTS
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 EFI
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 INSTALL
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 ISOLINUX
+-rwxr-xr-x     0     0     49053  9-Jun-2021 05:38 MD5SUM.TXT
+drwxr-xr-x     0     0         0  9-Jun-2021 05:34 POOL
+drwxr-xr-x     0     0         0  9-Jun-2021 05:38 PRESEED
+-rwxr-xr-x     0     0        94  9-Jun-2021 05:38 _YSLINUX.CFG
+-rwxr-xr-x     0     0       240  9-Jun-2021 05:38 AUTORUN.INF
+-rwxr-xr-x     0     0     34494  9-Jun-2021 05:38 AUTORUN.ICO
+
+Use Right to change directory, h to hide deleted files
+q to quit, : to select the current file, a to select all files
+C to copy the selected files, c to copy the current file
+</code></pre><h2 id="heading-11"></h2>
+<p>Now be careful, We now select all the files which we want to recover.</p>
+<h2 id="heading-12"></h2>
+<p>We can select files
+individually by pressing &ldquo;:&rdquo; while navigating the files, or we can just select all the files in the
+partition by pressing &ldquo;a&rdquo;.</p>
+<h2 id="heading-13"></h2>
+<p>After Selection Press &ldquo;C&rdquo; to copy the selected files and then the home
+directory will open. Select the folder of your choice where you want to store the backup.
+And Press &ldquo;C&rdquo; to paste the file. A Notification will show if the operation was successful or not in the terminal
+Press &ldquo;q&rdquo; multiple times to exit testdisk</p>
+<h2 id="congratulations-on-recovering-your-files">Congratulations on Recovering your files.</h2>
+<p>This is my first article I have published on the internet. If you find any mistakes or if you want
+to give any suggestions, please contact me through any of my social links below.</p>
+
+    </div>
+    
+</section>
+<footer id="footer">
+    <strong></strong>
+    <div class="social">
+        &nbsp; <a href="mailto:pratikkadam251999@gmail.com" target="_blank" rel="noopener" title="Email"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a> &nbsp;&nbsp; <a href="https://t.me/hazardkadam" target="_blank" rel="noopener" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></a> &nbsp;&nbsp; <a href="https://github.com/hazardkadam1999" target="_blank" rel="noopener" title="Github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a> &nbsp;&nbsp; <a href="https://www.reddit.com/user/hazard00100" target="_blank" rel="noopener" title="Reddit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg></a> &nbsp;&nbsp; <a href="https://www.linkedin.com/in/pratik-kadam-b2a0b2168/" target="_blank" rel="noopener" title="Linkedin"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a> &nbsp;
+    </div><strong></strong>
+    <p style="color:grey;">© 2021 Pratik Kadam. </p>
+</footer>
+</div>
+    </body>
+</html>
