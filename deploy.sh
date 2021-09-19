@@ -3,10 +3,11 @@
 vared -p "Enter commit message: " -c message
 
 printf "\e[33m\nBuilding project...\e[39m\n"
-hugo -d ../
+cd ..
+hugo -D 
 
 printf "\\e[33m\nPushing to YOUR_GITHUB_USERNAME.github.io repository...\e[39m\n\n"
-cd ..
+#cd ..
 git add .
 git commit -m "$message"
 git push origin main
