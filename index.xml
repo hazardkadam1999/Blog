@@ -17,16 +17,16 @@
 &lt;h2 id=&#34;level-1&#34;&gt;Level 1&lt;/h2&gt;
 &lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
 &lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
-&lt;p&gt;So today I decided to write a small writeup on Level 1 of ReversingHero Challenge.
+&lt;p&gt;So today I decided to write a small writeup on Level 1 of &lt;a href=&#34;https://www.reversinghero.com/&#34;&gt;ReversingHero&lt;/a&gt; Challenge.
 While learning RE in my 3rd year of college, I came across a thread on reddit which was addressed to
 RE newbies to give some learning Resources. I then found out about ReversingHero challenge there.
 It is a perfect challenge for RE Newbies.&lt;/p&gt;
 &lt;h2 id=&#34;heading-1&#34;&gt;&lt;/h2&gt;
-&lt;p&gt;I have used Remnux VM in this writeup which you can download from here. You can use any Linux
+&lt;p&gt;I have used Remnux VM in this writeup which you can download from &lt;a href=&#34;https://docs.remnux.org/install-distro/get-virtual-appliance&#34;&gt;here&lt;/a&gt;. You can use any Linux
 Distro to solve this challenge but I wanted to learn Remnux thus I will be pasting the output from it.
 You can download the binary file from reversinghero.com. You will be greeted with an intriguing
 content. All Credits to xorpd for creating this challenge
-and giving me a permission to post a writeup. You can visit his Personal Website here.&lt;/p&gt;
+and giving me a permission to post a writeup. You can visit his Personal Website &lt;a href=&#34;https://www.xorpd.net/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;diving-in&#34;&gt;Diving In&lt;/h2&gt;
 &lt;h2 id=&#34;heading-2&#34;&gt;&lt;/h2&gt;
 &lt;p&gt;So after Downloading I ran the file command to find out that the file was a Linux Executable(ELF) File.&lt;/p&gt;
