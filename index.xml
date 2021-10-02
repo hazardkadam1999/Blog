@@ -17,7 +17,7 @@
 &lt;p&gt;Hi World, how are you doing today??
 So this is going to be the Level 2 of the ReversingHero Writeup. Once again thanks to xorpd for creating
 such wonderful executable and giving me permission to write about it.&lt;br&gt;
-Lets jump right into it.\&lt;/p&gt;
+Lets jump right into it.&lt;/p&gt;
 &lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
 &lt;p&gt;As you saw in previous post, we get a new folder named &amp;ldquo;2&amp;rdquo; after completing level_1.&lt;br&gt;
 Here we see the same configuration one p and one x file. We make them executable first and also check the
