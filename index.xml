@@ -8,6 +8,36 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Sep 2021 15:45:22 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Level_2</title>
+      <link>/post/level_2/</link>
+      <pubDate>Sat, 02 Oct 2021 23:50:28 +0530</pubDate>
+      
+      <guid>/post/level_2/</guid>
+      <description>&lt;h1 id=&#34;level-2&#34;&gt;Level 2&lt;/h1&gt;
+&lt;p&gt;Hi World, how are you doing today??
+So this is going to be the Level 2 of the ReversingHero Writeup. Once again thanks to xorpd for creating
+such wonderful executable and giving me permission to write about it.&lt;br&gt;
+Lets jump right into it.\&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;As you saw in previous post, we get a new folder named &amp;ldquo;2&amp;rdquo; after completing level_1.&lt;br&gt;
+Here we see the same configuration one p and one x file. We make them executable first and also check the
+details.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1/2$ ls
+p2  x2
+remnux@remnux:~/Downloads/1/2$ chmod +x *
+remnux@remnux:~/Downloads/1/2$ ls
+p2  x2
+remnux@remnux:~/Downloads/1/2$ ls -al
+total 540
+drwx------ 2 remnux remnux   4096 Sep 18 16:09 .
+drwx------ 3 remnux remnux   4096 Sep 18 16:09 ..
+-rwxrwxr-x 1 remnux remnux 536240 Sep 18 16:09 p2
+-rwxrwxr-x 1 remnux remnux   6648 Sep 18 16:09 x2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Lets run both the files and give them some garbage argument&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Level_1</title>
       <link>/post/level_1/</link>
       <pubDate>Sat, 18 Sep 2021 15:45:22 +0530</pubDate>

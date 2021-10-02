@@ -6,7 +6,19 @@
     <description>Recent content in Posts on Hazard</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Sep 2021 15:45:22 +0530</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Oct 2021 23:50:28 +0530</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Level_2</title>
+      <link>/post/level_2/</link>
+      <pubDate>Sat, 02 Oct 2021 23:50:28 +0530</pubDate>
+      
+      <guid>/post/level_2/</guid>
+      <description>Level 2 Hi World, how are you doing today?? So this is going to be the Level 2 of the ReversingHero Writeup. Once again thanks to xorpd for creating such wonderful executable and giving me permission to write about it.
+Lets jump right into it.\
+ As you saw in previous post, we get a new folder named &amp;ldquo;2&amp;rdquo; after completing level_1.
+Here we see the same configuration one p and one x file.</description>
+    </item>
+    
     <item>
       <title>Level_1</title>
       <link>/post/level_1/</link>

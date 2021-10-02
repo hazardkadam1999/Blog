@@ -8,12 +8,17 @@
   </url>
   
   <url>
-    <loc>/post/level_1/</loc>
-    <lastmod>2021-09-18T15:45:22+05:30</lastmod>
+    <loc>/post/level_2/</loc>
+    <lastmod>2021-10-02T23:50:28+05:30</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2021-10-02T23:50:28+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/level_1/</loc>
     <lastmod>2021-09-18T15:45:22+05:30</lastmod>
   </url>
   
