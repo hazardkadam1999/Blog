@@ -17,5 +17,7 @@ printf "\e[33m\n\nNow pushing latest changes to PERSONAL_REPOSITORY_NAME reposit
 cd public
 git add .
 git commit -m "$message"
+git fetch origin main
+git pull --rebase origin main
 git push origin main
 printf "\033[0;32m\nSuccessfully pushed changes to the repository!\e[39m\n"
