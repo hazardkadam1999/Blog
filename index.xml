@@ -33,8 +33,89 @@ drwx------ 2 remnux remnux   4096 Sep 18 16:09 .
 drwx------ 3 remnux remnux   4096 Sep 18 16:09 ..
 -rwxrwxr-x 1 remnux remnux 536240 Sep 18 16:09 p2
 -rwxrwxr-x 1 remnux remnux   6648 Sep 18 16:09 x2
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Lets run both the files and give them some garbage argument&lt;/p&gt;
-</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s run both the files and give them some garbage argument just to see the functionality.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1/2$ ./p2
+&amp;gt; lkdkjvlsjdvoslsjdvosjdovjsv      
+] -
+remnux@remnux:~/Downloads/1/2$ ./x2
+? lsdjowwejvlsxsvojsojdflsjdviojiovjldjv
+! -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So this is same as the first Level. Lets check the strings in the ELF.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1/2$ strings x2
+/lib64/ld-linux-x86-64.so.2
+libc.so.6
+printf
+fdopen
+fclose
+memset
+memcmp
+strlen
+exit
+fgets
+strcspn
+GLIBC_2.2.5
+ATAUAVI
+A^A]A\
+ATAUAVI
+A^A]A\
+&amp;amp;EI1
+ATAUAUI
+A]A]A\
+ATAUAUH
+A]A]A\
+89349536319392163324855876422573
+! + 
+ReversingHero
+#&amp;lt;}]
+www.xorpd.net
+%02X
+_DYNAMIC
+_GLOBAL_OFFSET_TABLE_
+_edata
+fclose@@GLIBC_2.2.5
+strlen@@GLIBC_2.2.5
+printf@@GLIBC_2.2.5
+memset@@GLIBC_2.2.5
+strcspn@@GLIBC_2.2.5
+memcmp@@GLIBC_2.2.5
+fgets@@GLIBC_2.2.5
+_end
+fdopen@@GLIBC_2.2.5
+__bss_start
+exit@@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.plt
+.text
+.eh_frame
+.dynamic
+.got.plt
+.data
+.bss
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The string that stands out is well &lt;code&gt;89349536319392163324855876422573&lt;/code&gt; . Lets try to input it in
+x1 executable file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;remnux@remnux:~/Downloads/1/2$ ./x2
+? 89349536319392163324855876422573
+! -
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;LoL&amp;hellip; Doesnt work everytime.&lt;br&gt;
+Lets open the file in Binary Ninja Cloud.&lt;/p&gt;
+&lt;h2 id=&#34;heading-1&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;./img/RH2_1.png&#34; alt=&#34;image alg text&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Now we know if we enter any wrong string the executable gives output as &lt;code&gt;! -&lt;/code&gt;(See above when we tried the guessed string). So we definitely
+don&amp;rsquo;t want to go in the 4th box as it gives the same output. What we need is the 3rd box which would give &lt;code&gt;! +&lt;/code&gt; and append a flag then.&lt;/p&gt;
+&lt;h2 id=&#34;heading-3&#34;&gt;&lt;/h2&gt;
+&lt;p&gt;Now we try to break down main in x2 executable as simple as possible.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mov     rdi, data_6010d8
+mov     rdx, qword [rel data_6010d0]
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>

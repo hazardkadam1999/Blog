@@ -99,7 +99,7 @@ Here we see the same configuration one p and one x file."/>
     </div>
     <p>By <a href=""></a></p>
     <p class="post-dets">Published on: October 2, 2021
-        | Reading Time: 1 min | Last Modified : October 2, 2021
+        | Reading Time: 2 min | Last Modified : October 2, 2021
         <br>
     </p>
     <span class="tags">
@@ -127,8 +127,89 @@ drwx------ 2 remnux remnux   4096 Sep 18 16:09 .
 drwx------ 3 remnux remnux   4096 Sep 18 16:09 ..
 -rwxrwxr-x 1 remnux remnux 536240 Sep 18 16:09 p2
 -rwxrwxr-x 1 remnux remnux   6648 Sep 18 16:09 x2
-</code></pre><p>Lets run both the files and give them some garbage argument</p>
-
+</code></pre><p>Let&rsquo;s run both the files and give them some garbage argument just to see the functionality.</p>
+<pre><code>remnux@remnux:~/Downloads/1/2$ ./p2
+&gt; lkdkjvlsjdvoslsjdvosjdovjsv      
+] -
+remnux@remnux:~/Downloads/1/2$ ./x2
+? lsdjowwejvlsxsvojsojdflsjdviojiovjldjv
+! -
+</code></pre><p>So this is same as the first Level. Lets check the strings in the ELF.</p>
+<pre><code>remnux@remnux:~/Downloads/1/2$ strings x2
+/lib64/ld-linux-x86-64.so.2
+libc.so.6
+printf
+fdopen
+fclose
+memset
+memcmp
+strlen
+exit
+fgets
+strcspn
+GLIBC_2.2.5
+ATAUAVI
+A^A]A\
+ATAUAVI
+A^A]A\
+&amp;EI1
+ATAUAUI
+A]A]A\
+ATAUAUH
+A]A]A\
+89349536319392163324855876422573
+! + 
+ReversingHero
+#&lt;}]
+www.xorpd.net
+%02X
+_DYNAMIC
+_GLOBAL_OFFSET_TABLE_
+_edata
+fclose@@GLIBC_2.2.5
+strlen@@GLIBC_2.2.5
+printf@@GLIBC_2.2.5
+memset@@GLIBC_2.2.5
+strcspn@@GLIBC_2.2.5
+memcmp@@GLIBC_2.2.5
+fgets@@GLIBC_2.2.5
+_end
+fdopen@@GLIBC_2.2.5
+__bss_start
+exit@@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.plt
+.text
+.eh_frame
+.dynamic
+.got.plt
+.data
+.bss
+</code></pre><p>The string that stands out is well <code>89349536319392163324855876422573</code> . Lets try to input it in
+x1 executable file.</p>
+<pre><code>remnux@remnux:~/Downloads/1/2$ ./x2
+? 89349536319392163324855876422573
+! -
+</code></pre><p>LoL&hellip; Doesnt work everytime.<br>
+Lets open the file in Binary Ninja Cloud.</p>
+<h2 id="heading-1"></h2>
+<p><img src="../../img/RH2_1.png" alt="image alg text"></p>
+<h2 id="heading-2"></h2>
+<p>Now we know if we enter any wrong string the executable gives output as <code>! -</code>(See above when we tried the guessed string). So we definitely
+don&rsquo;t want to go in the 4th box as it gives the same output. What we need is the 3rd box which would give <code>! +</code> and append a flag then.</p>
+<h2 id="heading-3"></h2>
+<p>Now we try to break down main in x2 executable as simple as possible.</p>
+<pre><code>mov     rdi, data_6010d8
+mov     rdx, qword [rel data_6010d0]
+</code></pre>
     </div>
     
 </section>
